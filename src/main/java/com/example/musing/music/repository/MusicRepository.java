@@ -8,6 +8,4 @@ import java.util.Optional;
 public interface MusicRepository extends JpaRepository<Music, Long> {
     /*    Optional<Music> findByNameAndArtist(String name, Artist artist);*/
     Optional<Music> findBySongLink(String songLink);
-    Optional<Music> findByNameAndSongLink(String name, String songLink);
-
 }

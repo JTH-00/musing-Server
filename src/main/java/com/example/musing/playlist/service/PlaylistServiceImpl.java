@@ -179,7 +179,7 @@ public class PlaylistServiceImpl implements PlaylistService {
         // 추가
         for (PlaylistListResponse video : dto.getVideoList()) {
             if (songsToAdd.contains(video.getSongLink())) {
-                Music music = musicRepository.findByNameAndSongLink(video.getName(), video.getSongLink())
+                Music music = musicRepository.findBySongLink(video.getSongLink())
                         .orElseGet(() -> musicRepository.save(
                                 Music.builder()
                                         .name(video.getName())

@@ -64,8 +64,7 @@ public class PlayListSaveService {
         playListRepository.save(playList);
 
         for (PlaylistListResponse video : dto.getVideoList()) {
-            Music music = musicRepository.findByNameAndSongLink(
-                            video.getName(), video.getSongLink())
+            Music music = musicRepository.findBySongLink(video.getSongLink())
                     .orElseGet(() -> musicRepository.save(
                             Music.builder()
                                     .name(video.getName())
